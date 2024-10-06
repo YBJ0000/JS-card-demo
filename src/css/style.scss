@@ -1,0 +1,100 @@
+:root {
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+html,
+body {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+@mixin flexCenter($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  @include flexCenter;
+}
+
+.card-group {
+  position: relative;
+  @include flexCenter;
+}
+
+.card {
+  width: 20rem;
+  aspect-ratio: 2/3;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 30px 50px rgb(80, 80, 80);
+}
+
+.card:nth-child(1) {
+  width: 120rem;
+  aspect-ratio: 16/9;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+
+.card:nth-child(n + 2) {
+  position: absolute;
+  left: 50%;
+  transition: all 0.3s;
+}
+
+.card:nth-child(2) {
+  left: 50%;
+}
+
+.card:nth-child(3) {
+  left: calc(50% + 22rem)
+}
+
+.card:nth-child(4) {
+  left: calc(50% + 22rem * 2)
+}
+
+.card:nth-child(n + 5) {
+  left: calc(50% + 22rem * 3);
+  opacity: 0;
+}
+
+.btn-group {
+  position: absolute;
+  @include flexCenter;
+  bottom: 5rem;
+  gap: 2rem;
+}
+
+.btn {
+  width: 4rem;
+  aspect-ratio: 1;
+  // display: block;
+  background-color: #6b8692;
+  @include flexCenter;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px #505050;
+  cursor: pointer;
+}
+
+.btn:active {
+  background-color: #6e8e9e;
+  box-shadow: none;
+}
